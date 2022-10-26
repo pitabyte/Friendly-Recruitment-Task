@@ -48,6 +48,7 @@ To use the route above you first need to import JSON file from external API via 
 $ curl -o friendlyTask/static/json/photos.json --create-dirs https://jsonplaceholder.typicode.com/photos
 
 ```
+JSON body stays the same
 
 ### GET:
 
