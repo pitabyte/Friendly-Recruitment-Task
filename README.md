@@ -38,6 +38,7 @@ $ curl -i -H "Content-Type: application/json" -X POST -d "{\"albumId\": 3, \"tit
 
 ```
 
+
 #### http://127.0.0.1:8000/file/add - Uses local JSON file
 
 To use the route above you first need to import JSON file from external API via CLI:
@@ -52,6 +53,7 @@ $ curl -o friendlyTask/static/json/photos.json --create-dirs https://jsonplaceho
 
 #### http://127.0.0.1:8000/photos - Returns all photos as a list of JSON objects
 
+
 ### PUT:
 
 #### http://127.0.0.1:8000/update/{photoId} - Updates photo attributes of an ID specified in URL with values specified in body
@@ -64,6 +66,7 @@ JSON body is the same as in POST request:
     "title": "quidem ut quos non qui debitis exercitationem"
 }
 ```
+
 
 ### DELETE:
 
