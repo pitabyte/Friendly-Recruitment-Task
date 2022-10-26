@@ -20,7 +20,7 @@ $ python3 manage.py runserver
 
 ### POST:
 
-http://127.0.0.1:8000/add - connects with external API
+#### http://127.0.0.1:8000/add - connects with external API
 
 body example in JSON format:
 ```
@@ -50,11 +50,11 @@ $ curl -o friendlyTask/static/json/photos.json --create-dirs https://jsonplaceho
 
 ### GET:
 
-http://127.0.0.1:8000/photos - Returns all photos as a list of JSON objects
+#### http://127.0.0.1:8000/photos - Returns all photos as a list of JSON objects
 
 ### PUT:
 
-http://127.0.0.1:8000/update/{photoId} - Updates photo attributes of an ID specified in URL with values specified in body
+#### http://127.0.0.1:8000/update/{photoId} - Updates photo attributes of an ID specified in URL with values specified in body
 
 JSON body is the same as in POST request:
 
@@ -67,7 +67,7 @@ JSON body is the same as in POST request:
 
 ### DELETE:
 
-####http://127.0.0.1:8000/delete/{photoId} - Deletes photo of an ID specified in URL
+#### http://127.0.0.1:8000/delete/{photoId} - Deletes photo of an ID specified in URL
 
 
 
