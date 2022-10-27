@@ -1,7 +1,7 @@
 cfscrape==2.1.1
 cloudscraper==1.2.64
 colorthief==0.2.1
-Django==2.2.12
+Django==4.0.6
 djangorestframework==3.14.0
 Pillow==9.2.0
 requests==2.22.0
