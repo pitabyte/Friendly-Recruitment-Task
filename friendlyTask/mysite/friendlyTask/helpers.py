@@ -7,8 +7,6 @@ from PIL import Image
 from os.path import abspath, dirname, join
 import os
 from colorthief import ColorThief
-import undetected_chromedriver as uc
-from selenium import webdriver
 
 def get_dict_from_api(body):
     URL = "https://jsonplaceholder.typicode.com/photos"
