@@ -16,7 +16,7 @@ def get_dict_from_api(body):
     r = requests.get(url = URL, params = PARAMS)
     return r.json()[0]
 
-def photo_to_file(photoId, json_response):
+def photo_to_file(photoId, json_response): #API's CloudFlare denies access
     scraper = cloudscraper.create_scraper(browser={
         'browser': 'firefox',
         'platform': 'windows',
@@ -47,12 +47,6 @@ def get_dominant_color(img_path):
     dominant_color = color_thief.get_color(quality=1)
     color_hex = '#%02x%02x%02x' % dominant_color
     return color_hex
-
-def get_driver(): #api's cloudflare denies access
-    options = webdriver.ChromeOptions() 
-    options.add_argument("start-maximized")
-    driver = uc.Chrome(options=options)
-    return driver
 
 def find_dict_in_file(file, body):
     list_of_dictionaries = json.loads(file.read())

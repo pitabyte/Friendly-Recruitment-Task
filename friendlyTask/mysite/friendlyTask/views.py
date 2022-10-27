@@ -17,10 +17,20 @@ from friendlyTask.helpers import get_dict_from_api, photo_to_file, set_photo_att
 
 
 @api_view(['GET'])
-def getData(request):
+def getPhotos(request):
     photos = Photo.objects.all()
     serializer = PhotoSerializer(photos, many=True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+def getPhoto(request, id):
+    if Photo.objects.filter(id=id).exists():
+        photo = Photo.objects.get(id=id)
+        serializer = PhotoSerializer(photo)
+        return Response(serializer.data)
+    else:
+        content = {"This photo doesn't exist"}
+        return Response(content, status=status.HTTP_404_NOT_FOUND)
 
 @api_view(['POST'])
 def addPhoto(request):
@@ -39,7 +49,7 @@ def addPhoto(request):
     photo_to_file(photo.id, photo_dict)
     set_photo_attributes(photo)
     photo.save()
-    return Response(PhotoSerializer(photo).data)
+    return Response(status=status.HTTP_204_NO_CONTENT)
 
 @api_view(['PUT'])
 def updatePhoto(request, id):
@@ -49,7 +59,7 @@ def updatePhoto(request, id):
         photo.update(body['title'], body['albumId'])
         photo.save()
         serializer = PhotoSerializer(photo)
-        return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_204_NO_CONTENT)
     else:
         content = {"This photo doesn't exist"}
         return Response(content, status=status.HTTP_404_NOT_FOUND)
@@ -86,5 +96,5 @@ def addPhotoFromFile(request):
     photo_to_file(photo.id, photo_dict)
     set_photo_attributes(photo)
     photo.save()
-    return Response(PhotoSerializer(photo).data)
+    return Response(status=status.HTTP_204_NO_CONTENT)
 
