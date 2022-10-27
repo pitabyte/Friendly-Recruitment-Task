@@ -42,7 +42,7 @@ $ curl -i -H "Content-Type: application/json" -X POST -d "{\"albumId\": 3, \"tit
 
 ![image](https://user-images.githubusercontent.com/78605465/198174928-07605555-a674-4244-bea6-6a1f01796a06.png)
 
-#### http://127.0.0.1:8000/file/add - Uses local JSON file
+#### http://127.0.0.1:8000/file/add - Uses a local JSON file
 
 ```bash
 
