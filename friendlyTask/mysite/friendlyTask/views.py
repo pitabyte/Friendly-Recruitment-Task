@@ -36,14 +36,17 @@ def getPhoto(request, id):
 def addPhoto(request):
     body = request.data
     photo_dict = get_dict_from_api(body)
-
-    serializer = PhotoSerializer(data=photo_dict) 
-    if serializer.is_valid():
-        if Photo.objects.filter(albumId=body['albumId'], title=body['title']).exists():
-            return Response("This photo already exists.")
-        serializer.save()
+    if photo_dict:
+        serializer = PhotoSerializer(data=photo_dict) 
+        if serializer.is_valid():
+            if Photo.objects.filter(albumId=body['albumId'], title=body['title']).exists():
+                return Response("This photo has already been imported.")
+            serializer.save()
+        else:
+            return Response('invalid serializer', status=status.HTTP_400_BAD_REQUEST)
     else:
-        return Response('invalid serializer', status=status.HTTP_400_BAD_REQUEST)
+        content = {"This photo doesn't exist"}
+        return Response(content, status=status.HTTP_404_NOT_FOUND)
 
     photo = Photo.objects.get(albumId=body['albumId'], title=body['title'])
     photo_to_file(photo.id, photo_dict)
@@ -83,7 +86,7 @@ def addPhotoFromFile(request):
                 serializer = PhotoSerializer(data=photo_dict)
                 if serializer.is_valid():
                     if Photo.objects.filter(albumId=body['albumId'], title=body['title']).exists():
-                        return Response("This photo already exists.")
+                        return Response("This photo has already been imported.")
                     serializer.save()
                 else:
                     return Response('Invalid serializer', status=status.HTTP_400_BAD_REQUEST)

@@ -12,9 +12,10 @@ def get_dict_from_api(body):
     URL = "https://jsonplaceholder.typicode.com/photos"
     PARAMS = {'albumId': body['albumId'], 'title': body['title']}
     r = requests.get(url = URL, params = PARAMS)
-    return r.json()[0]
+    if len(r.json()) > 0:
+        return r.json()[0]
 
-def photo_to_file(photoId, json_response): #API's CloudFlare denies access
+def photo_to_file(photoId, json_response):
     scraper = cloudscraper.create_scraper(browser={
         'browser': 'firefox',
         'platform': 'windows',
