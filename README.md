@@ -50,7 +50,7 @@ $ curl -i -H "Content-Type: application/json" -X POST -d "{\"albumId\": 3, \"tit
 $ curl -i -H "Content-Type: application/json" -X POST -d "{\"albumId\": 4, \"title\": \"eum laborum in sunt ea\"}" http://127.0.0.1:8000/file/add
 
 ```
-JSON body stays the same
+JSON body format is the same in both POST requests.
 
 ### GET:
 
