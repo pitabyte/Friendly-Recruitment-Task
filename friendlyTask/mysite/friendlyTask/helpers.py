@@ -19,7 +19,7 @@ def photo_to_file(photoId, json_response):
     scraper = cloudscraper.create_scraper(browser={
         'browser': 'firefox',
         'platform': 'windows',
-        'mobile': False
+        'desktop': True
     })
     img_data = scraper.get(json_response['url']).content
     path = create_photo_path(photoId)
