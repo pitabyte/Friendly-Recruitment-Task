@@ -56,10 +56,12 @@ JSON body stays the same
 
 #### http://127.0.0.1:8000/photos - Returns all photos as a list of JSON objects
 
+#### http://127.0.0.1:8000/photos/{photoId} - Returns photo of an ID specified in URL
+
 
 ### PUT:
 
-#### http://127.0.0.1:8000/update/{photoId} - Updates photo attributes of an ID specified in URL with values specified in body
+#### http://127.0.0.1:8000/update/{photoId} - Updates photo of an ID specified in URL with values specified in body
 
 JSON body is the same as in POST request:
 
