@@ -22,11 +22,6 @@ $ python3 manage.py runserver
 
 #### http://127.0.0.1:8000/add - connects with external API
 
-#### IMPORTANT: Because placeholder.com uses CloudFlare, access to photos can be denied. To work around this, changing settings of 'cloudscraper' in helpers.py on line 18 can be helpful. Below are possible values to cloudscraper's parameters:
-
-![image](https://user-images.githubusercontent.com/78605465/198174928-07605555-a674-4244-bea6-6a1f01796a06.png)
-
-
 body example in JSON format:
 ```
 {
@@ -43,6 +38,9 @@ $ curl -i -H "Content-Type: application/json" -X POST -d "{\"albumId\": 3, \"tit
 
 ```
 
+#### IMPORTANT: Because placeholder.com uses CloudFlare, access to photos can be denied. To work around this, changing settings of 'cloudscraper' in helpers.py on line 18 can be helpful. Below are possible values to cloudscraper's parameters:
+
+![image](https://user-images.githubusercontent.com/78605465/198174928-07605555-a674-4244-bea6-6a1f01796a06.png)
 
 #### http://127.0.0.1:8000/file/add - Uses local JSON file
 
