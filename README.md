@@ -44,11 +44,10 @@ $ curl -i -H "Content-Type: application/json" -X POST -d "{\"albumId\": 3, \"tit
 
 #### http://127.0.0.1:8000/file/add - Uses local JSON file
 
-To use the route above you first need to import JSON file from external API via CLI:
-
 ```bash
-# make sure that you are in "/../Friendly-Recruitment-Task/friendlyTask/mysite" directory
-$ curl -o friendlyTask/static/json/photos.json --create-dirs https://jsonplaceholder.typicode.com/photos
+
+# importing via CLI
+$ curl -i -H "Content-Type: application/json" -X POST -d "{\"albumId\": 4, \"title\": \"eum laborum in sunt ea\"}" http://127.0.0.1:8000/file/add
 
 ```
 JSON body stays the same
