@@ -33,7 +33,7 @@ body example in JSON format:
 You can also use this route via CLI:
 
 ```bash
-
+# example:
 $ curl -i -H "Content-Type: application/json" -X POST -d "{\"albumId\": 3, \"title\": \"reiciendis et velit laborum recusandae\"}" http://127.0.0.1:8000/add
 
 ```
